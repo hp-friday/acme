@@ -1,14 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {CourseComponent} from './course/course.component';
 import {CourseCardComponent} from './course-card/course-card.component';
-import {CourseCardHippiComponent} from './course-card-hippi/course-card-hippi.component';
 import {SideMenuComponent} from './side-menu/side-menu.component';
 import {CourseCategoryComponent} from './course-category/course-category.component';
-
-//const routes: Routes = [];
+import {LessonMenuComponent} from './lesson-menu/lesson-menu.component';
+import {LessonsCenterComponent} from './lessons-center/lessons-center/lessons-center.component';
 
 
 const routes: Routes = [
@@ -19,6 +18,11 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'lessons-center',
+    loadChildren: () => import('./lessons-center/lessons-center.module').then(mod => mod.LessonsCenterModule),
+    data: { preload: true }
   },
   {
     path: 'course',
@@ -46,12 +50,29 @@ const routes: Routes = [
         outlet: 'sidemenu',
         component: SideMenuComponent,
       },
-
-
-
-
     ]
   },
+  // {
+  //   path: 'lessons',
+  //   component: LessonListComponent,
+  //   children: [
+  //     {
+  //       path: ':id',
+  //       outlet: 'lessonMenu',
+  //       component: LessonMenuComponent,
+  //     },
+  //     {
+  //       path: '',
+  //       outlet: 'lessonMenu',
+  //       component: LessonMenuComponent,
+  //     },
+  //
+  //
+  //
+  //
+  //   ]
+  //
+  // },
   {
     path: '',
     redirectTo: '/home',
