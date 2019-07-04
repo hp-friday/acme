@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import {Lesson} from '../Lesson';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DialogService} from '../../dialog.service';
 import {Observable} from 'rxjs';
 import {CanComponentDeactivate} from '../../can-deactivate.guard';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-lessons-detail',
@@ -12,7 +14,7 @@ import {CanComponentDeactivate} from '../../can-deactivate.guard';
 })
 export class LessonsDetailComponent implements OnInit, CanComponentDeactivate {
   lesson: Lesson;
-  editName: string;
+  public nameControl = new FormControl('');
 
   constructor(
     private route: ActivatedRoute,
@@ -22,25 +24,24 @@ export class LessonsDetailComponent implements OnInit, CanComponentDeactivate {
 
   ngOnInit() {
     this.route.data
-      .subscribe((data: {lesson: Lesson}) => {
-          this.editName = data.lesson.name;
-          this.lesson = data.lesson;
+      .subscribe((data: { lesson: Lesson }) => {
+        this.nameControl.patchValue(data.lesson ? data.lesson.name : '' );
+        this.lesson = data.lesson;
       });
   }
-
 
   cancel() {
     this.gotoLessons();
   }
 
   save() {
-    this.lesson.name = this.editName;
+    this.lesson.name = this.nameControl.value;
     this.gotoLessons();
   }
 
   canDeactivate(): Observable<boolean> | boolean {
     // Allow synchronous navigation (`true`) if no lesson or the lesson is unchanged
-    if (!this.lesson || this.lesson.name === this.editName) {
+    if (!this.lesson || this.lesson.name === this.nameControl.value) {
       return true;
     }
     // Otherwise ask the user with the dialog service and return its

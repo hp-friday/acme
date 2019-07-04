@@ -2,12 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
-import {CourseComponent} from './course/course.component';
-import {CourseCardComponent} from './course-card/course-card.component';
-import {SideMenuComponent} from './side-menu/side-menu.component';
-import {CourseCategoryComponent} from './course-category/course-category.component';
-import {LessonMenuComponent} from './lesson-menu/lesson-menu.component';
-import {LessonsCenterComponent} from './lessons-center/lessons-center/lessons-center.component';
 
 
 const routes: Routes = [
@@ -25,33 +19,42 @@ const routes: Routes = [
     data: { preload: true }
   },
   {
-    path: 'course',
-    component: CourseComponent,
-    children: [
-      {
-        path: '',
-        component: CourseCardComponent,
-      },
-      // {
-      //   path: 'hippi',
-      //   component: CourseCardHippiComponent
-      // },
-      {
-        path: ':id',
-        component: CourseCategoryComponent,
-      },
-      {
-        path: '',
-        outlet: 'sidemenu',
-        component: SideMenuComponent,
-      },
-      {
-        path: ':id',
-        outlet: 'sidemenu',
-        component: SideMenuComponent,
-      },
-    ]
+    path: 'course-center',
+    loadChildren: () => import('./course-center/course-center.module').then(mod => mod.CourseCenterModule),
+    data: { preload: true }
   },
+
+
+
+  // {
+  //   path: 'course',
+  //   component: CourseComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       component: CourseCardComponent,
+  //     },
+  //     // {
+  //     //   path: 'hippi',
+  //     //   component: CourseCardHippiComponent
+  //     // },
+  //     {
+  //       path: ':id',
+  //       component: CourseCategoryComponent,
+  //     },
+  //     {
+  //       path: '',
+  //       outlet: 'sidemenu',
+  //       component: SideMenuComponent,
+  //     },
+  //     {
+  //       path: ':id',
+  //       outlet: 'sidemenu',
+  //       component: SideMenuComponent,
+  //     },
+  //   ]
+  // },
+  //
   // {
   //   path: 'lessons',
   //   component: LessonListComponent,
@@ -59,12 +62,12 @@ const routes: Routes = [
   //     {
   //       path: ':id',
   //       outlet: 'lessonMenu',
-  //       component: LessonMenuComponent,
+  //       component: LessonsMenuComponent,
   //     },
   //     {
   //       path: '',
   //       outlet: 'lessonMenu',
-  //       component: LessonMenuComponent,
+  //       component: LessonsMenuComponent,
   //     },
   //
   //

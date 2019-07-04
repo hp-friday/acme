@@ -11,16 +11,19 @@ export class CourseCardHippiComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  private inLove = "I'm in love";
-  private iKitty = "I'm Kitty"
+  private inLove = 'I\'m in love';
+  private iKitty = 'I\'m Kitty';
 
   ngOnInit() {
   }
 
 
   navigate(path) {
-    this.router.navigate([{outlets: {primary: path, sidemenu:path}}],
-      {relativeTo: this.route})
+    // this.router.navigate(['/course-center/show', path, {outlets: { sidemenu: [path] } }],
+    //   {relativeTo: this.route});
+    this.router.navigate([{outlets: {primary: path , sidemenu: path }}],
+      {relativeTo: this.route});
+
   }
 
 }

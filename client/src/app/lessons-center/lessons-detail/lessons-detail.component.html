@@ -1,16 +1,31 @@
 <p>
-  lessons-detail works!
+  lessons-detail works and works and works! {{lesson.name}}
 </p>
-<div *ngIf="lesson">
-  <h3>"{{ editName }}"</h3>
-  <div>
-    <label>Id: </label>{{ lesson.id }}</div>
-  <div>
-    <label>Name: </label>
-    <input [(ngModel)]="editName" placeholder="name"/>
+
+
+<div *ngIf="lesson" class="card text-center">
+  <div class="card-header">
+    #{{ lesson.id }}
   </div>
-  <p>
-    <button (click)="save()">Save</button>
-    <button (click)="cancel()">Cancel</button>
-  </p>
+  <div class="card-block">
+    <h4 class="card-title">{{lesson.name}}</h4>
+    <p class="card-text">
+      {{lesson.description}} # {{nameControl.value}}
+    </p>
+    <form>
+      <div class="form-group row">
+        <label for="field1" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-9">
+          <input type="text" [formControl]="nameControl" class="form-control" id="field1" placeholder="Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="container-fluid ">
+          <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+          <button type="cancel" class="btn btn-secondary" (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
 </div>

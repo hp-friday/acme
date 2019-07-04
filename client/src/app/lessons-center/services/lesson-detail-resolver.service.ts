@@ -22,7 +22,7 @@ export class LessonDetailResolverService implements Resolve<Lesson> {
         if (lesson) {
           return of(lesson);
         } else { // id not found
-          this.router.navigate(['/lesson-center']);
+          this.router.navigate(['/lesson-center/show']);
           return EMPTY;
         }
       })

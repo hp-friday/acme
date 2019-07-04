@@ -8,16 +8,16 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class SideMenuComponent implements OnInit {
 
-  private what = "";
+  private what = '';
 
 
   constructor(route: ActivatedRoute) {
 
-      console.log("side menu activated");
+      console.log('side menu activated');
 
       route.params.subscribe( params => {
-          console.log("side menu id parameter", params['id'])
-          this.what = params['id'];
+          console.log('side menu id parameter', params.id);
+          this.what = params.id;
         }
       );
   }
