@@ -3,25 +3,69 @@
 </p>
 
 
-<div *ngIf="lesson" class="card text-center">
-  <div class="card-header">
+<div *ngIf="lesson" class="card-block ">
+  <div class="card-header text-center">
     #{{ lesson.id }}
   </div>
-  <div class="card-block">
-    <h4 class="card-title">{{lesson.name}}</h4>
-    <p class="card-text">
-      {{lesson.description}} # {{nameControl.value}}
+  <div class="card">
+    <h4 class="card-title text-center">{{lesson.name}}</h4>
+    <p class="card-text text-center">
+      {{lesson.description}} # {{detailForm.get('nameControl').value}}
     </p>
-    <form>
+    <form [formGroup]="detailForm"  (ngSubmit)="onSubmit()" class="m-2">
       <div class="form-group row">
-        <label for="field1" class="col-sm-2 col-form-label">Name</label>
-        <div class="col-sm-9">
-          <input type="text" [formControl]="nameControl" class="form-control" id="field1" placeholder="Name">
+        <label for="nameControlId" class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-8">
+          <input type="text" formControlName="nameControl" class="form-control" id="nameControlId" placeholder="Name">
         </div>
       </div>
       <div class="form-group row">
+        <label for="descControlId" class="col-sm-3 col-form-label">Description</label>
+        <div class="col-sm-8">
+          <input type="text" formControlName="descControl" class="form-control" id="descControlId" placeholder="Description"
+                 [ngClass]="{ 'is-invalid': submitted && f.descControl.errors }">
+          <div *ngIf="submitted && f.descControl.errors" class="invalid-feedback">
+            <div *ngIf="f.descControl.errors.required">Description is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="levelControlId" class="col-sm-3 col-form-label ">Level</label>
+        <div class="col-sm-8">
+          <select formControlName="levelControl" class="form-control" id="levelControlId">
+            <option [value]="level.name" *ngFor="let level of levels$ | async">{{level.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="passwordControlId" class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-8">
+          <input type="text" formControlName="passwordControl" class="form-control" id="passwordControlId" placeholder="Password"
+                 [ngClass]="{ 'is-invalid': submitted && f.passwordControl.errors }">
+          <div *ngIf="submitted && f.passwordControl.errors" class="invalid-feedback">
+            <div *ngIf="f.passwordControl.errors.required">Password is required</div>
+            <div *ngIf="f.passwordControl.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="confirmControlId" class="col-sm-3 col-form-label">Confirm</label>
+        <div class="col-sm-8">
+          <input type="password" formControlName="confirmControl" class="form-control" id="confirmControlId" placeholder="Confirm"
+                 [ngClass]="{ 'is-invalid': submitted && f.confirmControl.errors }">
+          <div *ngIf="submitted && f.confirmControl.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmControl.errors.required">Confirm Password is required</div>
+            <div *ngIf="f.confirmControl.errors.mustMatch">Passwords must match</div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="form-group row">
         <div class="container-fluid ">
-          <button type="submit" class="btn btn-primary" (click)="save()">Save</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!detailForm.valid">Submit</button>
           <button type="cancel" class="btn btn-secondary" (click)="cancel()">Cancel</button>
         </div>
       </div>
