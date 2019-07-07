@@ -19,11 +19,19 @@ const lessonsCenterRoutes: Routes = [
         path: '',
         component: LessonsMenuComponent,
         outlet: 'lessonsMenu',
+        data: {
+          breadcrumb: 'Menu'
+        }
+
       },
       {
         path: ':id',
         component: LessonsMenuComponent,
         outlet: 'lessonsMenu',
+        data: {
+          breadcrumb: 'Menu'
+        }
+
       },
 
       {
@@ -33,19 +41,31 @@ const lessonsCenterRoutes: Routes = [
         canDeactivate: [CanDeactivateGuard],
           resolve: {
             lesson: LessonDetailResolverService
-          }
+          },
+        data: {
+          breadcrumb: 'Detail'
+        }
+
       },
 
       {
         path: '',
         component: LessonsInfoComponent,
+        data: {
+          breadcrumb: 'Info'
+        }
+
       },
       {
         path: ':id',
         component: LessonsInfoComponent,
         resolve: {
           lesson: LessonDetailResolverService
+        },
+        data: {
+          breadcrumb: 'Info'
         }
+
       },
 
 

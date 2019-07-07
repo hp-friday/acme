@@ -32,7 +32,7 @@
       <div class="form-group row">
         <label for="levelControlId" class="col-sm-3 col-form-label ">Level</label>
         <div class="col-sm-8">
-          <select formControlName="levelControl" class="form-control" id="levelControlId">
+          <select formControlName="levelControl"  class="custom-select" id="levelControlId">
             <option [value]="level.name" *ngFor="let level of levels$ | async">{{level.name}}</option>
           </select>
         </div>
@@ -42,7 +42,7 @@
         <div class="col-sm-8">
           <input type="text" formControlName="passwordControl" class="form-control" id="passwordControlId" placeholder="Password"
                  [ngClass]="{ 'is-invalid': submitted && f.passwordControl.errors }">
-          <div *ngIf="submitted && f.passwordControl.errors" class="invalid-feedback">
+          <div *ngIf="submitted && f.passwordControl.errors" class="invalid-tooltip">
             <div *ngIf="f.passwordControl.errors.required">Password is required</div>
             <div *ngIf="f.passwordControl.errors.minlength">Password must be at least 6 characters</div>
           </div>

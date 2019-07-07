@@ -11,17 +11,20 @@ const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    data: {
+      breadcrumb: 'About'
+    }
   },
   {
     path: 'lessons-center',
     loadChildren: () => import('./lessons-center/lessons-center.module').then(mod => mod.LessonsCenterModule),
-    data: { preload: true }
+    data: { preload: true, breadcrumb: 'Lessons' }
   },
   {
     path: 'course-center',
     loadChildren: () => import('./course-center/course-center.module').then(mod => mod.CourseCenterModule),
-    data: { preload: true }
+    data: { preload: true, breadcrumb: 'Course' }
   },
 
 
