@@ -10,6 +10,7 @@ import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {LessonsCenterModule} from './lessons-center/lessons-center.module';
 import {CourseCenterModule} from './course-center/course-center.module';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {CourseCenterModule} from './course-center/course-center.module';
     AboutComponent,
     HeaderComponent,
     FooterComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,

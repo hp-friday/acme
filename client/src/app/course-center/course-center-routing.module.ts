@@ -10,10 +10,16 @@ const courseCenterRoutes: Routes = [
         {
           path: 'show',
           component: CourseCenterComponent,
+          data: {
+            breadcrumb: 'Courses'
+          },
           children: [
             {
               path: '',
               component: CourseCardComponent,
+              data: {
+                breadcrumb: ''
+              },
             },
             // {
             //   path: 'hippi',
@@ -22,6 +28,9 @@ const courseCenterRoutes: Routes = [
             {
               path: ':id',
               component: CourseCategoryComponent,
+              data: {
+                breadcrumb: 'Category'
+              },
             },
             {
               path: '',
@@ -32,6 +41,7 @@ const courseCenterRoutes: Routes = [
               path: ':id',
               outlet: 'sidemenu',
               component: SideMenuComponent,
+
             },
             ]
         }

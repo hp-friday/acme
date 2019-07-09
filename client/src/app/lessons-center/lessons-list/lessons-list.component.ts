@@ -39,6 +39,8 @@ export class LessonsListComponent implements OnInit {
     if (e instanceof NavigationEnd) {
       this.selectedId = this.intentionId;
       this.selectedLesson = this.intentionLesson;
+      this.intentionId = null;
+      this.intentionLesson = null;
     }
   }
 
@@ -51,7 +53,8 @@ export class LessonsListComponent implements OnInit {
     this.router.navigate([
         {
           outlets:
-            {primary: lesson.id.toString(), lessonsMenu: lesson.id.toString(), lessonsDetail: lesson.id.toString()}
+            // {primary: lesson.id.toString(),  lessonsDetail: lesson.id.toString()}
+      {primary: lesson.id.toString(), lessonsMenu: lesson.id.toString(), lessonsDetail: lesson.id.toString()}
         }
       ],
       {relativeTo: this.route}).then(() => {});

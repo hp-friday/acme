@@ -19,12 +19,12 @@ const routes: Routes = [
   {
     path: 'lessons-center',
     loadChildren: () => import('./lessons-center/lessons-center.module').then(mod => mod.LessonsCenterModule),
-    data: { preload: true, breadcrumb: 'Lessons' }
+    data: { preload: true, breadcrumb: '' }
   },
   {
     path: 'course-center',
     loadChildren: () => import('./course-center/course-center.module').then(mod => mod.CourseCenterModule),
-    data: { preload: true, breadcrumb: 'Course' }
+    data: { preload: true, breadcrumb: '' }
   },
 
 
