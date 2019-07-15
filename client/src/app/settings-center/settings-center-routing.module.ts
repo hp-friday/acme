@@ -1,18 +1,6 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {SettingsCenterComponent} from './settings-center/settings-center.component';
-
-const settingsCenterRoutes: Routes = [
-  {
-    path: 'show',
-    component: SettingsCenterComponent,
-    data: {
-      breadcrumb: 'Settings'
-    }
-  }
-];
-
+import {RouterModule} from '@angular/router';
+import {settingsCenterRoutes} from './settings-center-routes';
 
 @NgModule({
   declarations: [],
