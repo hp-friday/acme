@@ -8,7 +8,7 @@ import {map, switchMap} from 'rxjs/operators';
 @Component({
   selector: 'app-lessons-list',
   templateUrl: './lessons-list.component.html',
-  styleUrls: ['./lessons-list.component.css']
+  styleUrls: ['./lessons-list.component.scss']
 })
 export class LessonsListComponent implements OnInit {
 

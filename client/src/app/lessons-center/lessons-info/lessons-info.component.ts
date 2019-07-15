@@ -5,7 +5,7 @@ import {Lesson} from '../Lesson';
 @Component({
   selector: 'app-lessons-info',
   templateUrl: './lessons-info.component.html',
-  styleUrls: ['./lessons-info.component.css']
+  styleUrls: ['./lessons-info.component.scss']
 })
 export class LessonsInfoComponent implements OnInit {
   private selectedId = '';

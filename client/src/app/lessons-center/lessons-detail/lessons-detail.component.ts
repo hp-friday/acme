@@ -11,7 +11,7 @@ import {Level} from '../Level';
 @Component({
   selector: 'app-lessons-detail',
   templateUrl: './lessons-detail.component.html',
-  styleUrls: ['./lessons-detail.component.css']
+  styleUrls: ['./lessons-detail.component.scss']
 })
 export class LessonsDetailComponent implements OnInit, CanComponentDeactivate {
 

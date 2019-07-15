@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-lesson-menu',
   templateUrl: './lessons-menu.component.html',
-  styleUrls: ['./lessons-menu.component.css']
+  styleUrls: ['./lessons-menu.component.scss']
 })
 export class LessonsMenuComponent implements OnInit {
 

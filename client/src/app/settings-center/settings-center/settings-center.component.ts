@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'app-settings-center',
   templateUrl: './settings-center.component.html',
-  styleUrls: ['./settings-center.component.css']
+  styleUrls: ['./settings-center.component.scss']
 })
 export class SettingsCenterComponent implements OnInit {
 

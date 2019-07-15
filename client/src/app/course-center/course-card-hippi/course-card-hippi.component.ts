@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-course-card-hippi',
   templateUrl: './course-card-hippi.component.html',
-  styleUrls: ['./course-card-hippi.component.css']
+  styleUrls: ['./course-card-hippi.component.scss']
 })
 export class CourseCardHippiComponent implements OnInit {
 
