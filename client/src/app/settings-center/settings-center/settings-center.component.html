@@ -1,18 +1,23 @@
-<ul class="nav nav-tabs">
-  <li *ngFor="let route of routes" class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
+<!--<div (activationRequest)="activateTab($event)" >-->
+  <ul class="nav nav-tabs" >
+    <li *ngFor="let childRoute of children; let i = index"
+        routerLinkActive #rla="routerLinkActive"
+        class="nav-item">
+      <a class="nav-link" [class.active]="childRoute.path===currentRoutePath"
+         (click)=doNavigate(childRoute.path)>{{childRoute.path}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">A-Train</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Depotkonto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>
 
-<div class="tab-content" role="tabpanel">
-  <router-outlet name="tabbody" role="tabpanel" class="tab-pane active" ></router-outlet>
-</div>
+  <div class="tab-content" role="tabpanel">
+    <router-outlet name="tabbody" role="tabpanel" class="tab-pane active"></router-outlet>
+  </div>
+<!--</div>-->

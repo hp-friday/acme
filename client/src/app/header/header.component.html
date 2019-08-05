@@ -12,7 +12,16 @@
       <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
       <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+        <a class="nav-link dropdown-toggle" id="navbarDropdownExtras" role="button" data-toggle="dropdown"
+           routerLink="/extras-center/show">Extras</a>
+        <ul class="dropdown-menu">
+          <li *ngFor="let childRoute of extras;">
+            <a class="dropdown-item" (click)=doNavigate(childRoute.path)>{{childRoute.path}}</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownSettings" role="button" data-toggle="dropdown"
            routerLink="/settings-center/show">Settings</a>
         <ul class="dropdown-menu">
           <li *ngFor="let childRoute of children;">

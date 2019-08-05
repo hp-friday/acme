@@ -17,6 +17,11 @@ const routes: Routes = [
     }
   },
   {
+    path: 'extras-center',
+    loadChildren: () => import('./extras-center/extras-center.module').then(mod => mod.ExtrasCenterModule),
+    data: { preload: true, breadcrumb: '' }
+  },
+  {
     path: 'settings-center',
     loadChildren: () => import('./settings-center/settings-center.module').then(mod => mod.SettingsCenterModule),
     data: { preload: true, breadcrumb: '' }

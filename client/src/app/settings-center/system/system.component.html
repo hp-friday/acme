@@ -1,3 +1,51 @@
-<p>
-  system works!
-</p>
+
+<p>System works fine!</p>
+<div class="context-wrapper" [ngStyle]="{'display': params.active ? 'block' : 'none'}">
+  <div style="margin-top:15px;"></div>
+<!--  <button (click)="tab3.visible=!tab3.visible">Inverse tab 3 visibility</button>-->
+<!--  <button (click)="tc.setTabActivity(tab2, true)">Make tab 2 active</button>-->
+<!--  <button (click)="tab4.enabled=!tab4.enabled">inverse enability of tab 4</button>-->
+<!--  <div style="width:700px; height: 300px; padding: 10px; background-color: yellow">-->
+<!--    <app-tab-control #tc>-->
+<!--      <app-tab [id]="'id1'" caption="tab_long_name_long_name_long_name long name1"><span>Grid example 1</span><br>-->
+<!--        <app-grid [params]="gridParams" [dataProvider]="gridDataProvider"></app-grid>-->
+<!--      </app-tab>-->
+<!--      <app-tab #tab2 [active]="true" [id]="'id2'" caption="tab 2">tab2</app-tab>-->
+<!--      <app-tab #tab3 [visible]="false" [id]="'id3'" caption="tab 3">tab3</app-tab>-->
+<!--      <app-tab #tab4 [enabled]="false" [id]="'id4'" caption="tab 4">tab4</app-tab>-->
+<!--    </app-tab-control>-->
+<!--  </div>-->
+  <button class="form-control blue-button" (click)="makeWarningNotification('warning test warning test warning test warning test warning test warning test warning test warning test')">warning</button>
+  <button class="form-control" (click)="makeErrorNotification('error_test_error_test_error_test_error_test_error_test_error_test_error_test_error_test_error_test error test')">error</button>
+  <button class="form-control" (click)="makeInfoNotification('info test info test info test info test info test info test info test info test info test info test info test')">info</button>
+  <button class="form-control" (click)="makeSuccessNotification('success test success test success test success test success test success test success test success test')">success</button>
+  <button class="form-control" (click)="testAlert('Test Alert')">Alert</button>
+  <button class="form-control" (click)="testHistoryPerson('History Person')">History Person</button>
+  <button class="form-control" (click)="testConfirm('Test Confirm?')">Confirm</button>
+  <button class="form-control" (click)="testConfirmOptional('Test ConfirmOptional?')">Confirm optional</button>
+  <button class="form-control" (click)="testPrompt('Test Prompt')">Prompt</button>
+  <button class="form-control" (click)="testClick()">Change State</button>
+  <button class="form-control" (click)="resetContexts()">Reset contexts</button>
+  <br><br>
+  <!-- <app-calculator disabled></app-calculator> -->
+<!--  <app-calculator ([ngModel])="calc2"></app-calculator>**{{calc2}}**-->
+  <!-- <app-calculator></app-calculator> -->
+<!--  <app-controls-group title="12345">23452345 2345234534 3245324523453245</app-controls-group>-->
+  <br><br>
+  <br><br><span>Grid example 2</span><br>
+
+<!--  <div class="relative">-->
+<!--    <app-grid #grid2-->
+<!--              [dataContextMenu]="dcm1"-->
+<!--              [globalContextMenu]="gcm1"-->
+<!--              [params]="gridParams2"-->
+<!--              [dataProvider]="gridDataProvider2"-->
+<!--    ></app-grid>-->
+<!--    <app-grid-context-menu #dcm1 (onItemSelect)="dataMenuClick($event)" [items]="[{id:'d_id1', title:'data menu1'}, {id:'d_id2', title:'data menu2'}]"></app-grid-context-menu>-->
+<!--    <app-grid-context-menu #gcm1 (onItemSelect)="globalMenuClick($event)" [items]="[{id:'g_id1', title:'global menu1'}, {id:'g_id2', title:'global menu2'}]"></app-grid-context-menu>-->
+<!--  </div>-->
+
+
+
+  <br><br>
+</div>

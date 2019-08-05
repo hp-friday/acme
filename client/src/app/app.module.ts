@@ -8,9 +8,11 @@ import {HomeComponent} from './home/home.component';
 import {AboutComponent} from './about/about.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
-import {LessonsCenterModule} from './lessons-center/lessons-center.module';
-import {CourseCenterModule} from './course-center/course-center.module';
 import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
+import {NotificationWarningComponent} from './notifications/notification-warning/notification-warning.component';
+import {NotificationErrorComponent} from './notifications/notification-error/notification-error.component';
+import {NotificationInfoComponent} from './notifications/notification-info/notification-info.component';
+import {NotificationSuccessComponent} from './notifications/notification-success/notification-success.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,15 @@ import {BreadcrumbComponent} from './breadcrumb/breadcrumb.component';
     HeaderComponent,
     FooterComponent,
     BreadcrumbComponent,
+    NotificationWarningComponent,
+    NotificationErrorComponent,
+    NotificationInfoComponent,
+    NotificationSuccessComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LessonsCenterModule,
-    CourseCenterModule,
     ReactiveFormsModule
   ],
   providers: [],

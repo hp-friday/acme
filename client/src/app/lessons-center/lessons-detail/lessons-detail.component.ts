@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Lesson} from '../Lesson';
 import {ActivatedRoute, Router} from '@angular/router';
-import {DialogService} from '../../dialog.service';
+import {DialogService} from '../../services/dialog.service';
 import {Observable} from 'rxjs';
 import {CanComponentDeactivate} from '../../can-deactivate.guard';
 import {LessonService} from '../services/lessons.service';
@@ -107,7 +107,9 @@ export class LessonsDetailComponent implements OnInit, CanComponentDeactivate {
     }
     // Otherwise ask the user with the dialog service and return its
     // observable which resolves to true or false when the user decides
-    return this.dialogService.confirm('Discard changes?');
+    this.dialogService.confirm('Discard changes?',
+    () => {console.log('ok'); return true; },
+    () => {console.log('cancel'); return false; });
   }
 
 

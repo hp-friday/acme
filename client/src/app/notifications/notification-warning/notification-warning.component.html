@@ -1,0 +1,4 @@
+<div *ngIf="!hidden" class="alert alert-warning word-breakable">
+    <button type="button" class="close" aria-label="Close" (click)="close()"><span aria-hidden="true">&times;</span></button>
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="notification__message">{{message}}</span>
+</div>

@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {settingsCenterRoutes} from './settings-center-routes';
 
 @NgModule({
@@ -13,3 +13,7 @@ import {settingsCenterRoutes} from './settings-center-routes';
 })
 export class SettingsCenterRoutingModule {
 }
+
+export const settingsRoutes: Routes = [
+  ...settingsCenterRoutes
+];

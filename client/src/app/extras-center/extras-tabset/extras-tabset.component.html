@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs" >
+  <li *ngFor="let childRoute of children; let i = index"
+      routerLinkActive #rla="routerLinkActive"
+      class="nav-item">
+    <a class="nav-link"
+      [class.active]="childRoute.path == currentRoutePath"
+       (click)=doNavigate(childRoute.path)>{{childRoute.path}}</a>
+  </li>
+</ul>
+
+
+
+<router-outlet name="tabbody"></router-outlet>
